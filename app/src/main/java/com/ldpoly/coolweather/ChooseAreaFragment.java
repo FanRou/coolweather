@@ -138,9 +138,7 @@ public class ChooseAreaFragment extends Fragment {
         queryProvinces();
     }
 
-    /**
-     * 查询全国所有的省，优先从数据库查询，如果没有查询到再去服务器上查询。
-     */
+
     private void queryProvinces() {
         titleText.setText("中国");
         backButton.setVisibility(View.GONE);
@@ -159,9 +157,7 @@ public class ChooseAreaFragment extends Fragment {
         }
     }
 
-    /**
-     * 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
-     */
+
     private void queryCities() {
         titleText.setText(selectedProvince.getProvinceName());
         backButton.setVisibility(View.VISIBLE);
@@ -181,9 +177,7 @@ public class ChooseAreaFragment extends Fragment {
         }
     }
 
-    /**
-     * 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
-     */
+
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
         backButton.setVisibility(View.VISIBLE);
@@ -204,9 +198,7 @@ public class ChooseAreaFragment extends Fragment {
         }
     }
 
-    /**
-     * 根据传入的地址和类型从服务器上查询省市县数据。
-     */
+
     private void queryFromServer(String address, final String type) {
         showProgressDialog();
         HttpUtil.sendOkHttpRequest(address, new Callback() {
@@ -252,9 +244,7 @@ public class ChooseAreaFragment extends Fragment {
         });
     }
 
-    /**
-     * 显示进度对话框
-     */
+
     private void showProgressDialog() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(getActivity());
@@ -264,9 +254,6 @@ public class ChooseAreaFragment extends Fragment {
         progressDialog.show();
     }
 
-    /**
-     * 关闭进度对话框
-     */
     private void closeProgressDialog() {
         if (progressDialog != null) {
             progressDialog.dismiss();
